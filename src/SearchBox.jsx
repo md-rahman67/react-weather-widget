@@ -2,16 +2,35 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 
-export default function SearchBox() {
+export default function SearchBox({ setInfo }) {
     const [city, setCity] = useState("");
+    const API_KEY = "a10eb9dd8cf0267065a913bd7a27e7a1";
+    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+
+    async function getLanNdLat() {
+        const res = await fetch(API_URL);
+        const JSONre = await res.json();
+
+        const main = {
+            city: city,
+            temperature: JSONre.main.temp,
+            feelsLike: JSONre.main.feels_like,
+            humidity: JSONre.main.humidity,
+            maxTemperature: JSONre.main.temp_max,
+            minTemperature: JSONre.main.temp_min,
+            Weather: JSONre.weather[0].description
+        };
+
+        setInfo(main);
+    }
 
     function handleCityChange(event) {
         setCity(event.target.value);
     }
 
-    function handleCitySubmit(event) {
+    async function handleCitySubmit(event) {
         event.preventDefault();
-        console.log(city);
+        await getLanNdLat();
         setCity("");
     }
     return (
