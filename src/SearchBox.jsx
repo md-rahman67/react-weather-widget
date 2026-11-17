@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function SearchBox({ setInfo }) {
     const [city, setCity] = useState("");
-    const API_KEY = "a10eb9dd8cf0267065a913bd7a27e7a1";
+    const API_KEY = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
 
     async function getLanNdLat() {
