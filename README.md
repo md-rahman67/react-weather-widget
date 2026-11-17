@@ -31,29 +31,7 @@ Start the development server:
 npm run dev
 ```
 
-Vite reads the environment variable when it starts. Restart the server after changing `.env`.
+## Author
 
-## Available Scripts
+Created as a personal learning project to practice Node.js, Express.js, and REST API development.
 
-- `npm run dev` starts the local development server.
-- `npm run build` creates a production build in `dist`.
-- `npm run preview` previews the production build locally.
-- `npm run lint` checks the project with ESLint.
-
-## API Key Note
-
-This app calls OpenWeatherMap directly from the browser. Vite includes `VITE_` variables in the browser build, so this key is visible to users. Restrict the key in your OpenWeatherMap account where possible. If the key was exposed, revoke it and create a replacement.
-
-## React + Vite
-
-Vite provides a development server with Hot Module Replacement (HMR) and ESLint rules.
-
-This project uses `@vitejs/plugin-react`, which uses [Oxc](https://github.com/oxc-project/oxc).
-
-## React Compiler
-
-The React Compiler is not enabled in this project. See the [React Compiler documentation](https://react.dev/learn/react-compiler) to learn more.
-
-## Expanding the ESLint configuration
-
-For a TypeScript project with type-aware lint rules, see the [Vite React TypeScript template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts).
